@@ -1,0 +1,15 @@
+/*
+This file is used to contain all layout imports.
+Files inside this folder should contain all styles relating
+to layouts.
+*/
+//Import layout files
+// Container styles
+.container {
+    display: block;
+    margin: 0 auto;
+    padding: 0 $pad;
+    max-width: 1140px;
+}
+@import 'header';
+@import 'footer';
