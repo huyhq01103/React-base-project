@@ -1,0 +1,20 @@
+
+percent($num)
+  unit(round($num * 100), '%')
+
+//css-tricks and treehouse Aborted due to warnings.are pretty cool too
+$padding = 30px
+
+breakpoint($point)
+  if $point == PC
+    @media (min-width 1024px)
+       block 
+  else if $point == tablet
+    @media (min-width 768px)
+      block 
+  else if $point == mobile
+    @media (max-width 767px)
+       block 
+  else if $point == mobile-xs
+    @media (max-width 480px)
+       block 

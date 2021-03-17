@@ -27,5 +27,32 @@ module.exports = {
       description: 'Laboris sunt consequat ex in nostrud. Aliquip duis quis quis eu ullamco enim sunt nostrud id. Laboris sunt consequat ex in nostrud. Aliquip duis quis quis eu ullamco enim sunt nostrud id.'
     },
   ],
+  news: [
+    {
+      title: 'Coc Coc joined National Advertising Day 2019',
+      type: 'news',
+      image_url: 'https://via.placeholder.com/540x295',
+    },
+    {
+      title: 'Grab cùng chiến dịch truyền thông vô cùng hiệu quả với ca sĩ Mỹ Tâm',
+      type: 'study',
+      image_url: 'https://via.placeholder.com/540x295',
+    },
+    {
+      title: 'Coc Coc joined National Advertising Day 2019a',
+      type: 'news',
+      image_url: 'https://via.placeholder.com/540x295',
+    },
+    {
+      title: 'Coc Coc joined National Advertising Day 2019',
+      type: 'news',
+      image_url: 'https://via.placeholder.com/540x295',
+    },
+    {
+      title: 'Coc Coc joined National Advertising Day 2019',
+      type: 'news',
+      image_url: 'https://via.placeholder.com/540x295',
+    },
+  ],
   
 };
