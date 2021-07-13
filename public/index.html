@@ -1,21 +1,92 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Coccoc QC"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
+<html lang="vi">
+
+<head>
+	<meta charset="utf-8" />
+	<link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	<!-- HTML5 styling for Internet Explorer 6-9, Safari 4.x (and iPhone 3.x), and Firefox 3.x -->
+	<!--[if lt IE 9]>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"
+		integrity="sha512-UDJtJXfzfsiPPgnI5S1000FPLBHMhvzAMX15I+qG2E2OAzC9P1JzUwJOfnypXiOH7MRPaqzhPbBGDNNj7zBfoA=="
+		crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"
+		integrity="sha512-qWVvreMuH9i0DrugcOtifxdtZVBBL0X75r9YweXsdCHtXUidlctw7NXg5KVP3ITPtqZ2S575A0wFkvgS2anqSA=="
+		crossorigin="anonymous"></script>
+		<![endif]-->
+	<!--[if IE 9]>
+	    <meta http-equiv="X-UA-Compatible" content="IE=9">
+	<![endif]-->
+	<!--[if IE 8]>
+	    <meta http-equiv="X-UA-Compatible" content="IE=8">
+	<![endif]-->
+	<!--[if IE 7]>
+	    <meta http-equiv="X-UA-Compatible" content="IE=7">
+	<![endif]-->
+	<!--[if IE 6]>
+	    <meta http-equiv="X-UA-Compatible" content="IE=6">
+	<![endif]-->
+
+	<title>Quảng cáo Cốc Cốc</title>
+	<!-- Launch Icon Title -->
+	<meta name="apple-mobile-web-app-title" content="Quảng cáo Cốc Cốc">
+	<meta itemprop="name" content="Quảng cáo Cốc Cốc">
+	<meta property="og:site_name" content="Quảng cáo Cốc Cốc">
+	<meta property="og:title" content="Quảng cáo Cốc Cốc">
+	<meta name="application-name" content="Quảng cáo Cốc Cốc">
+
+	<!-- Keyword -->
+	<meta name="keywords"
+		content="coc coc, cốc cốc, quang cao, quảng cáo, ad, ads, Coc Coc quang cao, Cốc Cốc quảng cáo, coccoc ads, cốc cốc ads, Quang cao Coc Coc co hieu qua khong, Quảng cáo Cốc Cốc có hiệu quả không, Gia quang cao tren coccoc, Giá quảng cáo trên coccoc, Quảng cáo Cốc Cốc là gì, Anh quang cao Coc Coc, Ảnh quảng cáo Cốc Cốc, bang gia quang cao coc coc">
+
+	<!-- Description -->
+	<meta name="description"
+		content="Với Quảng cáo Cốc Cốc, bạn có thể tiếp cận 18 triệu khách hàng và chỉ trả tiền khi khách click vào quảng cáo. Hơn 3000 công ty đang quảng cáo trên Cốc Cốc." />
+	<meta property="og:description"
+		content="Với Quảng cáo Cốc Cốc, bạn có thể tiếp cận 18 triệu khách hàng và chỉ trả tiền khi khách click vào quảng cáo. Hơn 3000 công ty đang quảng cáo trên Cốc Cốc.">
+	<meta itemprop="description"
+		content="Với Quảng cáo Cốc Cốc, bạn có thể tiếp cận 18 triệu khách hàng và chỉ trả tiền khi khách click vào quảng cáo. Hơn 3000 công ty đang quảng cáo trên Cốc Cốc.">
+
+	<!-- Provides information about an author or another person -->
+	<!-- <link rel="me" href="https://google.com/profiles/thenextweb" type="text/html"> -->
+	<link rel="me" href="mailto:sales@coccoc.com">
+	<meta property="fb:admins" content="CocCocTrinhDuyet">
+	<link rel="me" href="sms:+842438838838">
+	<meta name="copyright" content="Công ty trách nhiệm hữu hạn công nghệ Cốc Cốc">
+	<meta name="author" content="Công ty trách nhiệm hữu hạn công nghệ Cốc Cốc">
+	<meta name="GENERATOR" content="Công ty trách nhiệm hữu hạn công nghệ Cốc Cốc">
+	<meta property="og:type" content="website">
+
+
+	<!-- Add to home screen -->
+	<meta name="mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+
+	<!-- Force IE 8/9/10 to use its latest rendering engine -->
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+	<!-- Theme Color for Chrome, Firefox OS and Opera -->
+	<meta name="msapplication-TileColor" content="#4FBA69">
+	<meta name="msapplication-TileImage" content="%PUBLIC_URL%/favicons/ms-icon-144x144.png">
+	<meta name="theme-color" content="#4FBA69">
+	<!-- Safari Pinned Tab Icon -->
+	<link rel="mask-icon" href="%PUBLIC_URL%/favicons/icon.svg" color="#4FBA69">
+	<!-- Status bar appearance (has no effect unless standalone mode is enabled) -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#4FBA69">
+
+	<!-- Disable automatic detection and formatting of possible -->
+	<meta name="format-detection" content="telephone=no">
+	<meta name="format-detection" content="address=no">
+	<meta name="format-detection" name="email=no" />
+
+	<!--
+		manifest.json provides metadata used when your web app is installed on a
+		user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+	-->
+	<link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+	<!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
       Only files inside the `public` folder can be referenced from the HTML.
@@ -24,13 +95,30 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>Coccoc QC</title>
-    
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
+	<link rel="apple-touch-icon" sizes="57x57" href="%PUBLIC_URL%/favicons/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="%PUBLIC_URL%/favicons/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="%PUBLIC_URL%/favicons/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="%PUBLIC_URL%/favicons/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="%PUBLIC_URL%/favicons/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="%PUBLIC_URL%/favicons/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="%PUBLIC_URL%/favicons/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="%PUBLIC_URL%/favicons/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="%PUBLIC_URL%/favicons/apple-icon-180x180.png">
+
+
+	<!-- For IE 10 and below -->
+	<link rel="icon" type="image/png" sizes="192x192" href="%PUBLIC_URL%/favicons/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="%PUBLIC_URL%/favicons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="%PUBLIC_URL%/favicons/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="%PUBLIC_URL%/favicons/favicon-16x16.png">
+	<!-- Identify the software used to build the document -->
+	<meta name="generator" content="React application" />
+</head>
+
+<body>
+	<noscript>You need to enable JavaScript to run this app.</noscript>
+	<div id="root"></div>
+	<!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
 
@@ -40,5 +128,6 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-  </body>
+</body>
+
 </html>

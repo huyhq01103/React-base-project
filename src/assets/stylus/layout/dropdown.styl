@@ -1,0 +1,205 @@
+.dropdown
+	background $white
+	font-size 1rem
+	color $text_color_light
+	cursor pointer
+	header
+		border-radius .5rem
+		border thin solid $border_color
+		padding .5rem 1rem
+		font-weight 600
+		display flex
+		&::after
+			content url("data:image/svg+xml,%3Csvg width='9' height='5' viewBox='0 0 9 5' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4.27701 4.75223L0.450621 0.500689C0.276869 0.307633 0.413878 0 0.673609 0H8.32639C8.58612 0 8.72313 0.307633 8.54938 0.50069L4.72299 4.75224C4.60382 4.88465 4.39618 4.88465 4.27701 4.75223Z' fill='%23848687'/%3E%3C/svg%3E%0A")
+			margin-left auto
+			position relative
+			top -2px
+		span
+			margin-right 1rem
+		// +breakpoint(PC)
+		// 	color $primary
+		// 	border-color $primary
+		// 	width max-content
+		// 	&::after
+		// 		content url("data:image/svg+xml,%3Csvg width='9' height='5' viewBox='0 0 9 5' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4.27701 4.75223L0.450621 0.500689C0.276869 0.307633 0.413878 0 0.673609 0H8.32639C8.58612 0 8.72313 0.307633 8.54938 0.50069L4.72299 4.75224C4.60382 4.88465 4.39618 4.88465 4.27701 4.75223Z' fill='%234FBA69'/%3E%3C/svg%3E%0A")
+	main
+		max-width inherit
+		position fixed
+		z-index 999
+		background $white
+		border-radius .5rem
+		left 0
+		right 0
+		top 55px
+		&::after
+			content ''
+			width 100%
+			height 100%
+			background #E5E5E5
+			opacity 0.7
+			position fixed
+			top 0
+			left 0
+			z-index -1
+		+breakpoint(tablet)
+			position absolute
+			top none
+			left 50%
+			transform translate(-50%, 0)
+			&::after
+				display none
+	.main
+		margin-top 8px
+		padding 1.5rem 0
+		box-shadow 0px 6px 15px rgba(0, 0, 0, 0.11)
+		background $white
+		border-radius .5rem
+		text-align left
+		width 100%
+		height calc(100vh - 100px)
+		overflow-y scroll
+		overflow-x hidden
+		position relative
+		+breakpoint(tablet)
+			overflow hidden
+			height auto
+		.btn-close
+			position absolute
+			right 12px
+			top 12px
+		.selected
+			display flex
+			font-weight 600
+			margin-bottom 1.5rem
+			img
+				margin-left auto
+				cursor pointer
+		.list
+			list-style none
+			padding 0
+			margin-top 0
+			li
+				cursor pointer
+				span
+					display block
+					padding 10px 15px
+					+breakpoint(PCSM)
+						padding 10px 10%
+					+breakpoint(PC)
+						padding 10px 14%
+
+
+				&:hover, &.active
+					color $primary
+
+				// grid-template-columns repeat(3, 1fr)
+
+
+.dropdown.open
+	header
+		color $primary
+		border-color $primary
+		&::after
+			content url("data:image/svg+xml,%3Csvg width='9' height='5' viewBox='0 0 9 5' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4.27701 4.75223L0.450621 0.500689C0.276869 0.307633 0.413878 0 0.673609 0H8.32639C8.58612 0 8.72313 0.307633 8.54938 0.50069L4.72299 4.75224C4.60382 4.88465 4.39618 4.88465 4.27701 4.75223Z' fill='%234FBA69'/%3E%3C/svg%3E%0A")
+	main
+		.selected
+			color $primary
+
+
+.Dropdown-root
+	position relative
+	&.is-open
+		.Dropdown-placeholder
+			color $text_color_lightest
+.Dropdown-control
+	background white
+	cursor default
+	padding 9px 20px 9px 16px
+	min-width 30px
+.Dropdown-placeholder
+	color $text_color_lightest
+	white-space nowrap
+	text-overflow ellipsis
+	overflow hidden
+.Dropdown-arrow
+	border-color $text_color_lightest transparent transparent
+	border-style solid
+	border-width 5px 5px 0
+	content ' '
+	display block
+	height 0
+	margin-top -2.5px
+	position absolute
+	right 10px
+	top 50%
+	width 0
+.is-open .Dropdown-arrow
+	border-color transparent transparent $text_color_lightest
+	border-width 0 5px 5px
+.Dropdown-menu
+	background-color white
+	box-sizing border-box
+	margin-top 4px
+	max-height 350px
+	overflow-y auto
+	position absolute
+	top 100%
+	width 100%
+	z-index 1000
+	-webkit-overflow-scrolling touch
+	border-radius 4px
+	box-shadow 0px 4px 10px rgba(0, 0, 0, 0.14)
+	&::-webkit-scrollbar-track
+		background-color $border_color
+		border-radius 0
+	&::-webkit-scrollbar-thumb
+		border-radius 2px
+		background-color #FFF
+		background $primary
+	&::-webkit-scrollbar
+		width 4px
+		background-color $border_color
+.Dropdown-option
+	box-sizing border-box
+	color $text-main
+	cursor pointer
+	display block
+	text-align left
+	padding 4px 18px
+	font-size 16px
+	line-height 1.5rem
+	&.is-selected
+		background-color #f2f9fc
+		color $primary
+	&:hover
+		color $primary
+
+.btn-close
+	padding 15px
+	font-size 0
+	width 30px
+	position absolute
+	right 25px
+	top 35px
+	z-index 9
+	cursor pointer
+	&:after,&:before
+		content ''
+		position absolute
+		right 50%
+		top 50%
+		width 16px
+		height 2px
+		margin-top -1px
+		margin-right -8px
+		background-color $text_color_light
+		transform rotate(45deg)
+		transition all .3s ease-in-out
+
+	&:before
+		transform rotate(-45deg)
+	+breakpoint(PCSM)
+		top 20px
+		&:hover
+			&:after,&:before
+				background-color $primary

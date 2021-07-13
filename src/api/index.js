@@ -1,22 +1,18 @@
+let baseURL = process.env.REACT_APP_API_URL;
 const headers = () => {
-  const token = "";
-  if (process.env.NODE_ENV === "production") {
-    return {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`
-    };
-  }
   return {
+    'Accept': 'application/json',
     "Content-Type": "application/json"
   };
 };
 
 const request = (method, endpoint, data) => {
   return new Promise((resolve, reject) => {
-    fetch(`/api${endpoint}`, {
+    fetch(`${baseURL}/api/v1${endpoint}`, {
       method,
+      // headers: headers(),
       body: JSON.stringify(data),
-      headers: headers()
+      
     })
       .then((res) => res.json())
       .then((res) => {

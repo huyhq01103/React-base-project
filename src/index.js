@@ -1,13 +1,17 @@
+import 'react-app-polyfill/ie9';
+import 'react-app-polyfill/ie11';
+import 'react-app-polyfill/stable';
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter as Router } from "react-router-dom";
 import App from "./App";
-
+import { AppProvider } from './contexts/MyContext';
+// import * as serviceWorker from './serviceWorker';
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      <App />
-    </Router>
+		<AppProvider>
+				<App />
+		</AppProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );
+// serviceWorker.register();

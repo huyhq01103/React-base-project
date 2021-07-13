@@ -1,14 +1,51 @@
 //Thanks Kezz
 $primary = #4FBA69
-$secondary = #F16037
-$content_bg_color = #fff
-$module_bg_color = #fff
-$radius = 5px;
-$fs-base = 14px
-$line-height = 1.5em
-$text-body = #2A2B2B
-$text-gray = #6E7171
+$primary_background = #005824
+$primary_background_light = #14842F
+// $primary-600 = #6CC984
+// $primary-300 = #BBE3C5
+// $primary-100 = #E1F2E5
 
+$secondary = #F16037
+$secondary-2 = #97C93D
+$text_color = #2A2B2B
+$title_color = #141515
+
+
+$black = #000
+$dark_color = #141515
+$accodion_title = #444545
+$text_color_light = #6E7171
+$text_color_lightest = #848687
+$placeholder_color = #A2A3A3
+// $gray-300 = #B7B7B7
+$border_color = #E3E3E3
+// $gray-100 = #F5F5F5
+$white = #fff
+
+$gradient = linear-gradient(180deg, #FFFFFF 0%, #E3F0EE 100%)
+$gradient-2 = linear-gradient(90deg, #97C93D 0%, #4FBA69 100%)
+
+
+$content_bg_color = #eee
+$module_bg_color = #fff
+
+$primary_lightened = lighten($primary, 15%)
+$primary_darkened = darken($primary, 15%)
+$primary_greyed = lighten(desaturate($primary, 70%), 50%)
+$soft_gradient = linear-gradient(bottom, $primary_lightened 0%, $primary 2%, $primary 98%, $primary_darkened)
+
+auto_text_color()
+  if dark(@background-color)
+    color lighten(@background-color, 90%)
+  else
+    color $primary
+
+darkbg()
+  auto_text_color()
+
+lightbg()
+  auto_text_color()
 // Variables
 //
 // Variables should follow the `$component-state-property-size` formula for

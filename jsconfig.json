@@ -1,9 +1,12 @@
 {
-  "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "src/*": ["./src/*"]
-    }
-  },
-  "exclude": ["node_modules"]
+	"compilerOptions": {
+		"baseUrl": "./",
+		"paths": {
+			"src/*": ["src/*"],
+			"components/*": ["src/components/*"],
+			"@images/*": ["public/assets/images"],
+			"@fonts/*": ["public/assets/fonts"]
+		}
+	},
+	"exclude": ["node_modules"]
 }

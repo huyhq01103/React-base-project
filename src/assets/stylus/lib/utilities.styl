@@ -7,14 +7,99 @@ $padding = 30px
 
 breakpoint($point)
   if $point == PC
-    @media (min-width 1024px)
-       block 
+    @media (min-width 1200px)
+       block
+  if $point == PCSM
+    @media (min-width 992px)
+       block
   else if $point == tablet
     @media (min-width 768px)
-      block 
+      block
   else if $point == mobile
     @media (max-width 767px)
-       block 
+       block
   else if $point == mobile-xs
     @media (max-width 480px)
-       block 
+       block
+
+vendor(prop, args)
+  -webkit-{prop} args
+  -moz-{prop} args
+  -ms-{prop} args
+  -o-{prop} args
+  {prop} args
+
+vertical(prop, args)
+  {prop}-top args
+  {prop}-bottom args
+
+horizontal(prop, args)
+  {prop}-left args
+  {prop}-right args
+
+border-radius()
+  vendor('border-radius', arguments)
+
+transform()
+  vendor('transform', arguments)
+
+transition()
+  vendor('transition', arguments)
+
+margin-vertical()
+  vertical('margin', arguments)
+
+margin-horizontal()
+  horizontal('margin', arguments)
+
+padding-vertical()
+  vertical('padding', arguments)
+
+padding-horizontal()
+  horizontal('padding', arguments)
+
+
+.section-padding
+	padding 2.5rem 1rem
+	text-align center
+	+breakpoint(PC)
+		padding-vertical 5rem
+		text-align left
+
+.section-margin
+	margin 2.5rem 1rem
+	text-align center
+	+breakpoint(PC)
+		margin-vertical 5rem
+		text-align left
+
+.visually-hidden
+	position: absolute !important
+	height: 1px
+	width: 1px
+	overflow: hidden
+	clip: rect(1px 1px 1px 1px) /* IE6, IE7*/
+	clip: rect(1px, 1px, 1px, 1px)
+	white-space: nowrap
+
+.form-state
+	font-size .875rem
+	font-weight normal
+	margin-top .75rem
+	margin-bottom 0
+	&.loading
+		color: #3760F1
+	&.success
+		color: #4FBA69
+		&::before
+			content: url('@images/icons/success.svg')
+			margin-right .75rem
+			position relative
+			top 1px
+	&.error
+		color: #F16037
+		&::before
+			content: url('@images/icons/error.svg')
+			margin-right .75rem
+			position: relative
+			top: 5px

@@ -1,0 +1,71 @@
+image: docker:18.09.7
+
+services:
+    - docker:18.09.7-dind
+
+variables:
+    IMAGE_NAME: "ccr.itim.vn/browser/qc-landing-frontend"
+
+stages:
+    - build
+    - push
+    - deploy
+
+before_script:
+    - docker info
+
+build_dev:
+    stage: build
+    only:
+        - /^[0-9]+\.[0-9]+\.[0-9]+\-dev$/
+    except:
+        - branches
+        - triggers
+    script:
+        - mv .env.development .env.production
+        - docker build -t $IMAGE_NAME:$CI_COMMIT_TAG -f ./docker/app/Dockerfile .
+
+push_dev:
+    stage: push
+    only:
+        - /^[0-9]+\.[0-9]+\.[0-9]+\-dev$/
+    except:
+        - branches
+        - triggers
+    script:
+        - docker login -u $DOCKER_REGISTRY_USERNAME -p $DOCKER_REGISTRY_PASSWORD ccr.itim.vn
+        - docker push $IMAGE_NAME:$CI_COMMIT_TAG
+        - echo "Pushed image $IMAGE_NAME:$CI_COMMIT_TAG"
+
+deploy_dev:
+    stage: deploy
+    only:
+        - /^[0-9]+\.[0-9]+\.[0-9]+\-dev$/
+    except:
+        - branches
+        - triggers
+    script:
+        - apk add --update curl && rm -rf /var/cache/apk/*
+        - curl -I https://jenkins.itim.vn/buildByToken/buildWithParameters?job=DEV-build-k8s\&token=$JENKINS_TOKEN\&NAMESPACE=browser\&PROJ=qc-landing-frontend\&ENV=dev\&IMAGE=$IMAGE_NAME:$CI_COMMIT_TAG
+
+build_prod:
+    stage: build
+    only:
+        - /^[0-9]+\.[0-9]+\.[0-9]+$/
+    except:
+        - branches
+        - triggers
+    script:
+        - docker build -t $IMAGE_NAME:$CI_COMMIT_TAG -f ./docker/app/Dockerfile .
+
+push_prod:
+    stage: push
+    only:
+        - /^[0-9]+\.[0-9]+\.[0-9]+$/
+    except:
+        - branches
+        - triggers
+    script:
+        - docker login -u $DOCKER_REGISTRY_USERNAME -p $DOCKER_REGISTRY_PASSWORD ccr.itim.vn
+        - docker push $IMAGE_NAME:$CI_COMMIT_TAG
+        - echo "Pushed image $IMAGE_NAME:$CI_COMMIT_TAG"

@@ -1,48 +1,66 @@
 body
   font-body()
-  font-size $fs-base
-  line-height $line-height
-  +breakpoint(tablet)
-    font-size 14px
-  +breakpoint(mobile)
-    font-size 12px 
-  
+  font-size 14px
+  line-height 1.5
+  // +breakpoint(tablet)
+  //   font-size 14px
+  // +breakpoint(mobile)
+  //   font-size 14px
+b
+  font-weight 600
+
 aside
   font-size 0.8em
-  
+
 h1, h2, h3, h4, h5, h6
-  font-weight bold
   margin 0 0 1em 0
   padding 0
-  line-height 1.1
+  line-height 1.5
+  font-weight 600
 h1, .h1
   font-size 2.5em
   margin 0 0 1em 0
-  +breakpoint(mobile)
-    font-size 1.8em
+  // +breakpoint(mobile)
+  //   font-size 1.8em
 h2, .h2
-  font-size 2.0em
+  font-size 36px
   margin 0 0 1em 0
-  +breakpoint(mobile)
-    font-size 1.7em
+  // +breakpoint(mobile)
+  //   font-size 1.7em
 h3, .h3
-  // In blog post sub sections
-  font-size 1.8em
-  margin-top 50px
-  +breakpoint(mobile)
-    font-size 1.6em
+	margin-bottom 2rem
+	margin-top 0
+	font-weight normal
+	font-size 1.5rem
+	color $text_color
+
+	+breakpoint(PC)
+		margin-bottom 3rem
+		font-size 2.25rem
 h4, .h4
-  font-size 1.2em
+  font-size 18px
   margin 0 0 0.8em 0
-  +breakpoint(mobile)
-    font-size 1.2em
+  // +breakpoint(mobile)
+  //   font-size 1.2em
 h5, .h5
-  font-size 1.0em
+  font-size 16px
   margin 0
-  text-transform uppercase
-  +breakpoint(mobile)
-    font-size 1.0em
+  // +breakpoint(mobile)
+  //   font-size 1.0em
 h6
   // Not really used
   font-size 1.0em
 
+html
+	-webkit-font-smoothing antialiased
+	-moz-osx-font-smoothing grayscale
+	text-rendering optimizeLegibility
+
+	-webkit-font-kerning normal
+	font-kerning normal
+
+	font-feature-setting "kern", "liga"
+	font-variant-ligatures common-ligatures
+
+.fw-semi
+  font-weight 600

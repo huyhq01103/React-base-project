@@ -1,28 +1,43 @@
-// font-header()
-//   font-family 'SVN-Poppins', sans-serif
-//   font-weight bold
-// font-body()
-//   font-family 'SVN-Poppins', sans-serif
-//   font-weight 400
 font-url(file)
   return '../../fonts/' + file
 
-webfont(family, file, hack-chrome-windows = false, weight = 'normal', style = 'normal')
-  @font-face
-    font-family family
-    src url(font-url(file + '.eot'))
-    src url(font-url(file + '.eot?#iefix')) format('embedded-opentype'),
-        url(font-url(file + '.woff')) format('woff'), 
-        url(font-url(file + '.ttf')) format('truetype')
-    font-weight weight
-    font-style style
 
-webfont(SVN-Poppins, SVN-Poppins, normal, normal);
-webfont(SVN-Poppins, SVN-PoppinsBold, bold, normal);
-webfont(SVN-Poppins, SVN-PoppinsBoldItalic, bold, italic);
-webfont(SVN-Poppins, SVN-PoppinsSemiBold, 600, normal);
-webfont(SVN-Poppins, SVN-PoppinsSemiBoldItalic, 600, italic);
-webfont(SVN-Poppins, SVN-PoppinsMedium, 500, normal);
-webfont(SVN-Poppins, SVN-PoppinsMediumItalic, 500, italic);
-webfont(SVN-Poppins, SVN-PoppinsLight, 300, normal);
-webfont(SVN-Poppins, SVN-PoppinsLightItalic, 300, italic);
+webfont(family, file, weight, style)
+	@font-face
+		font-family family
+		font-weight weight
+		font-style style
+		font-display swap
+		src url(@fonts/file.eot) /* IE9 Compat Modes */
+		src url(@fonts/file.eot?#iefix) format('embedded-opentype'), /* IE6-IE8 */
+				url(@fonts/file.woff2) format('woff2'), /* Super Modern Browsers */
+				url(@fonts/file.woff) format('woff'), /* Modern Browsers */
+				url(@fonts/file.ttf) format('truetype') /* Safari, Android, iOS */
+
+
+// Light font
+webfont(SVN-Poppins, SVN-PoppinsLight, 100, normal)
+webfont(SVN-Poppins, SVN-PoppinsLightItalic, 100, italic)
+
+// Normal font
+webfont(SVN-Poppins, SVN-Poppins, 400, normal)
+webfont(SVN-Poppins, SVN-PoppinsItalic, 400, italic)
+
+// Medium font
+webfont(SVN-Poppins, SVN-PoppinsMedium, 500, normal)
+webfont(SVN-Poppins, SVN-PoppinsMediumItalic, 500, italic)
+
+// Semi-bold font
+webfont(SVN-Poppins, SVN-PoppinsSemiBold, 600, normal)
+webfont(SVN-Poppins, SVN-PoppinsSemiBoldItalic, 600, italic)
+
+// Bold font
+webfont(SVN-Poppins, SVN-PoppinsBold, 700, normal)
+webfont(SVN-Poppins, SVN-PoppinsBoldItalic, 700, italic)
+
+
+font-body()
+	font-family 'SVN-Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+	font-weight normal
+	font-style normal
+

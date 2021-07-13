@@ -1,0 +1,35 @@
+line-clamp($line)
+	display -webkit-box
+	-webkit-line-clamp $line
+	-webkit-box-orient vertical
+	overflow hidden
+	text-overflow ellipsis
+
+size(w, h)
+	width: w
+	height: h
+
+gaps(direction, args)
+	& > * + *
+		if direction == 'column'
+			margin-top args
+			margin-left 0px
+		else if direction == 'row'
+			margin-left args
+			margin-top 0px
+		else
+			margin-top args
+			margin-left args
+
+flex-center()
+	display flex
+	align-items center
+	justify-content center
+
+scroll-space()
+	scroll-padding-top: 2rem
+	scroll-margin-top: 2rem
+
+reduce()
+	@media (prefers-reduced-motion: reduce)
+		block

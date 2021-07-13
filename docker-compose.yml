@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: ./docker/app/local/Dockerfile
+    volumes:
+      - .:/app
+      - /app/node_modules
+    tty: true
+    ports:
+      - ${APP_PORT}:3000
+    networks:
+      - default

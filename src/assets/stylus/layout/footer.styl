@@ -1,0 +1,102 @@
+footer.footer
+	background $black
+	color $text_color_lightest
+	text-align left
+
+	a
+		color inherit
+		text-decoration none
+		&:hover
+			text-decoration: underline
+
+	.container
+		text-align: left
+		.footer-icon
+			margin-right 10px
+			position relative
+			top 2px
+
+		.footer-nav
+			.wrapper
+				display flex
+				flex-direction column
+
+				+breakpoint(PC)
+					flex-direction row
+					justify-content space-between
+
+				.address article header, .contact header
+					font-weight: 600
+					font-size: 14px
+					color: $border_color
+					margin-bottom 8px
+
+				.help
+					ul
+						list-style none
+						padding-left 0
+						margin-bottom 0
+						margin-top 40px
+
+						li a
+							color $text_color_lightest
+
+						> li + li
+							padding-top 16px
+
+			.address
+				margin-top 40px
+				color $placeholder_color
+				display flex
+				flex-direction column
+				gaps column 1.25rem
+
+				> article
+					& a, & address
+						display flex
+						align-items flex-start
+
+				+breakpoint(PC)
+					max-width 350px
+					margin-horizontal auto
+
+			.address-item
+				display block
+				& + .address-item
+					margin-top .25rem
+					+breakpoint(PC)
+						margin-top .75rem
+
+			.contact
+				margin-top 20px
+				display flex
+				flex-direction column
+
+				+breakpoint(PC)
+					margin-top 40px
+
+				> a + a
+					margin-top 8px
+
+		.bottom
+			margin-top 48px
+			display flex
+			flex-direction column
+			color: $border_color
+
+			+breakpoint(PC)
+				flex-direction row
+				justify-content space-between
+				align-items center
+			.social
+				margin-top 10px
+				a
+					img
+						filter brightness(.7)
+					&:hover img
+						filter none
+				+breakpoint(PC)
+					margin-top 0
+
+.copyright
+	color: $border_color

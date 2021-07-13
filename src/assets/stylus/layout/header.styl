@@ -1,0 +1,389 @@
+
+burger-effect()
+	transition top 0.3s 0.3s cubic-bezier(0.23, 1, 0.32, 1), transform 0.3s cubic-bezier(0.23, 1, 0.32, 1)
+
+burger-effect-open()
+	transition top 0.3s cubic-bezier(0.23, 1, 0.32, 1), transform 0.3s 0.3s cubic-bezier(0.23, 1, 0.32, 1)
+
+$header-height = 72px
+$header-heightMB = 58px
+burger-size = 24px
+burger-color = $text_color_light
+// dropdown-icon = "data:image/svg+xml,%3Csvg width='10' height='5' viewBox='0 0 10 5' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4.77701 4.75223L0.950621 0.500689C0.776869 0.307633 0.913878 0 1.17361 0H8.82639C9.08612 0 9.22313 0.307633 9.04938 0.50069L5.22299 4.75224C5.10382 4.88465 4.89618 4.88465 4.77701 4.75223Z' fill='%236E7171'/%3E%3C/svg%3E%0A"
+// .header-main
+// 	border-bottom 1px solid $border_color
+
+/* ---- Header on Top ---- */
+
+html
+	scroll-padding-top $header-height + 100px
+#header
+	background: $white
+	z-index 9
+	width 100vw
+	position fixed
+	top 0
+	+ *
+		margin-top $header-height
+
+.header-content
+	// padding-vertical 1rem
+
+	& a, & span
+		color #6e7171
+		font-size 16px
+		text-decoration none
+		 +breakpoint(PCSM)
+			font-size 14px
+	hr
+		display block
+		width 100vw
+		position absolute
+		left 50%
+		bottom 0
+		margin 0
+		margin-left -50vw
+		border 0
+		border-top thin solid #f5f5f5
+		z-index 9999
+		 +breakpoint(PCSM)
+			z-index 99
+
+#header .header-content
+	+breakpoint(PCSM)
+		display flex
+		flex-center()
+
+	.navbar-brand
+		display flex
+		justify-content space-between
+		align-items center
+		padding 1rem 0
+		.logo
+			max-width 83px
+			a
+				display flex
+		 +breakpoint(PCSM)
+			border-bottom none
+			padding 0
+			.logo
+				max-width 127px
+
+
+// Burger menu
+.navbar-burger
+	width burger-size
+	height burger-size
+	position relative
+	display flex
+	align-items center
+	justify-content center
+	cursor pointer
+
+	 +breakpoint(PCSM)
+		display none
+
+	.item
+		transition-duration 0.5s
+		position absolute
+		height (@height / 12)
+		width (@width - 6)
+		background-color burger-color
+
+		&::before,
+		&::after
+			content ''
+			position absolute
+			left 0
+			width @width
+			height @height
+			background burger-color
+			burger-effect()
+		&::before
+			top 5px
+		&::after
+			top -5px
+
+	&.is-active .item
+			background-color transparent
+			&::before,
+			&::after
+				top 0
+				burger-effect-open()
+			&::before
+				transform rotate(-45deg)
+			&::after
+				transform rotate(45deg)
+
+// navbar header
+
+.header-body
+	text-align center
+	position fixed
+	left 0
+	z-index 999
+	width 100%
+	background $white
+	display flex
+	flex-direction: column
+	gaps column 4.5rem
+	animation 500ms down-leave forwards
+	height: 0
+	overflow: hidden
+	transition: height 0s ease 0.5s
+	padding-vertical 4rem
+
+	 +breakpoint(PCSM)
+		all unset
+		height: auto
+		background: transparent
+		position static
+		display flex
+		flex-direction: row
+		padding-vertical 0px
+		flex 1
+
+	&.is-active
+		animation 500ms down-enter forwards
+		transition height 0.5s ease 0s
+		height: calc(100% - 58px)
+		overflow-y: auto
+
+
+	.navbar
+		padding-bottom 15%
+		display block
+		display flex
+		flex-direction column
+		min-height: max-content
+		+breakpoint(tablet)
+			min-height: auto
+			min-height: unset
+			padding-bottom: 0px
+			padding-bottom unset
+		a, .sub-navbar a
+			text-decoration none
+			font-weight 400
+			transition all 0.3s ease
+			&.is-active, &:hover
+				color $primary
+			&.is-active
+				font-weight 600
+		 +breakpoint(PCSM)
+			padding-top 0
+			flex-direction row
+			flex-center()
+			margin-left auto
+			margin-right 7%
+
+		& > .navbar-item
+			margin-bottom 24px
+			+breakpoint(PCSM)
+				padding-vertical 1.8rem
+				margin 0 0 0 1rem
+			+breakpoint(PC)
+				margin 0 0 0 1.5rem
+		.navbar-item > a
+			text-decoration none
+			font-weight 400
+			transition color 0.3s ease, margin 0.3s ease-in-out
+			line-height 22px
+			display inline-block
+
+			&.is-active, &:hover
+				color $primary
+			&.is-active
+				font-weight 600
+
+	.other
+		margin-top auto
+		// padding-top 64px
+		flex-basis: 235px
+		// padding-bottom 95px
+		// gaps column 35px
+
+		 +breakpoint(PCSM)
+			all unset
+			display flex
+			flex-center()
+			-ms-flex-preferred-size: auto
+		.flex-center
+			flex-center()
+			font-weight 600
+			color $primary
+			margin-right 20px
+
+			img
+				margin-right 10px
+		.registration
+			display inline-flex
+			flex-direction column-reverse
+			justify-content center
+			align-items: center
+			margin-bottom 2rem
+			white-space: nowrap
+
+			 +breakpoint(PCSM)
+				margin-bottom: 0
+				margin-right: 0.5rem
+				flex-direction: row
+				align-items: center
+				justify-content: flex-start
+
+				// > * + *
+				// 	margin-left 32px
+
+			> .btn
+				font-size 14px
+			.login
+				margin-bottom 2rem
+				&:hover
+					color $white
+					background #f16037
+				 +breakpoint(PCSM)
+					margin 0 0 0 .5rem
+		.Dropdown-root
+			width 70px
+			margin 0 auto
+			.Dropdown-control
+				padding 9px 25px 9px 0
+				.Dropdown-placeholder.is-selected
+					text-align: right
+					margin-right 0.5rem
+			+breakpoint(PCSM)
+				width auto
+				.Dropdown-control
+					padding 9px 25px 9px 9px
+
+
+		.languages
+			display flex
+			flex-direction column
+			align-items center
+			justify-content center
+			cursor pointer
+			margin-top 35px
+			font-size 16px
+			position relative
+
+			> a::after
+				content ''
+				display inline-block
+				background-image url('@images/icons/dropdown.svg')
+				width 10px
+				height 5px
+
+				position relative
+				top -2px
+				margin-left 8px
+
+			 +breakpoint(PCSM)
+				margin-top 0
+				margin-left 32px
+
+
+
+/* ---- Sub-navbar ---- */
+.sub-navbar
+	z-index 999
+	display flex
+	flex-direction column
+	max-height 0
+	overflow hidden
+	border-radius 2px
+	will-change max-height
+	backface-visibility: hidden
+	background-color: #f5f5f5
+	// transition height 0s ease 0.5s
+	// animation 500ms down-leave forwards
+	transition 0.3s ease
+	transition-property max-height, opacity
+	&.show
+		max-height 100%
+	+breakpoint(PCSM)
+		// all unset
+		position absolute
+		left 0
+		top 100%
+		background-color white
+		display flex
+		flex-direction column
+		white-space nowrap
+		text-align left
+		max-height 0
+		overflow hidden
+		transition-duration 0.25s
+		&.show
+			max-height 0
+
+
+	> a
+		padding-horizontal 1.5rem
+		padding-top 1rem
+		&:last-child
+			padding-bottom: 1rem
+// Dropdown
+	+breakpoint(PCSM)
+		.navbar-submenu:hover .sub-navbar,
+		.dropdown-open.sub-navbar
+			max-height 100%
+			box-shadow 0px 6px 15px rgba(0, 0, 0, 0.11)
+			max-height 1000px //add if more sub menu
+
+.navbar-submenu
+	cursor pointer
+	position relative
+	& > a
+		font-weight 400
+		position relative
+		display inline-block
+		transition: margin 0.3s ease-in-out
+		&.expended
+			margin-bottom 8px
+		&::after
+			content ''
+			border-color $text_color_lightest transparent transparent
+			border-style solid
+			border-width 5px 5px 0
+			content ' '
+			display block
+			height 0
+			position absolute
+			margin-top -1px
+			right -20px
+			top 50%
+			width 0
+			transition all 0.3s ease
+	.is-active::after
+		border-color $primary transparent transparent
+	.expended::after
+		transform rotate(-180deg)
+	+breakpoint(PCSM)
+		&> a::after
+			display none
+
+/* ---- Disable transition when reduce motion ---- */
+@media (prefers-reduced-motion: reduce)
+	#header
+		.navbar-burger
+			.item, &.active .item
+				transition none
+				&::before, &::after
+					transition none
+		.header-body
+			animation-duration: 0s
+			transition none
+		.sub-navbar
+			transition: none
+
+@keyframes down-enter
+	0%
+		clip-path inset(0 0 100% 0)
+	100%
+		clip-path inset(0)
+
+@keyframes down-leave
+	0%
+		clip-path: inset(0)
+	100%
+		clip-path inset(0 0 100% 0)

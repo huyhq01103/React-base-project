@@ -2,6 +2,7 @@
 @import 'lib/variable'
 @require "reset"
 // MIXIN
+@require "mixins/mixins"
 @require "mixins/breakpoints"
 @require "mixins/grid-frameworks"
 @require "mixins/grid"
@@ -11,16 +12,15 @@
 @import 'lib/utilities'
 @import 'lib/fonts'
 @import 'lib/typography'
+@import 'lib/global'
 // LAYOUT
 @import 'layout/layouts-dir'
 // PAGE
 @import 'pages/pages-dir'
-html
-body
-  text-align center
-  margin 0
-  padding 0
-  height 100%
-  
 
-
+#root
+    display flex
+    flex-direction column
+    min-height 100vh
+.main-contain
+    flex-grow 1

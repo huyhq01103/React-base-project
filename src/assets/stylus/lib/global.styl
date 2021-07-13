@@ -1,0 +1,130 @@
+.hide-xs
+	+breakpoint(mobile)
+		display none !important
+
+.show-xs
+	+breakpoint(tablet)
+		display none !important
+
+.bg-green
+	background-color #F3F9F8
+	width 100vw
+	position relative
+	left 50%
+	margin-left -50vw
+	&.form
+		+breakpoint(PC)
+			background-image: url('@images/icons/form-background.svg')
+			background-repeat: no-repeat
+			background-position: bottom right
+.social
+	display flex
+	align-items center
+	gaps row 16px
+	.st-btn
+		width 24px
+		height 24px
+		transition all 0.3s ease
+		&:hover
+			filter brightness(0.5)
+		&[data-network='facebook']
+			background url('@images/icons/ic_fb.svg')
+		&[data-network='gmail']
+			background url('@images/icons/ic_gmail.svg')
+		&[data-network='twitter']
+			background url('@images/icons/ic_twitter.svg')
+
+	a
+		display block
+		width 24px
+		img
+			filter grayscale(1)
+		&:hover img
+			filter none
+
+.fadeIn
+	animation fadeIn 0.5s linear
+.fadeOut
+	animation fadeOut 0.5s linear
+.position-relative
+	position relative
+
+.aligncenter
+	margin 0 auto
+
+.breadcrumb
+	font-size 12px
+	color $text_color_lightest
+	display flex
+	white-space nowrap
+	align-items center
+	a
+		color $text_color_lightest
+		text-decoration none
+	.slash
+		font-size 0
+		margin 0 10px
+		display block
+		width 10px
+		height 8px
+		border-top 2px solid $text_color_light
+		border-left 2px solid $text_color_light
+		transform: rotate(135deg);
+	.active
+		color $primary
+		white-space nowrap
+		width 100%
+		text-overflow ellipsis
+		overflow hidden
+img
+	animation fadeIn 1s ease-out
+	+reduce()
+		animation: none
+	user-select: none
+@keyframes fadeOut
+	0%
+		opacity 1
+		visibility visible
+	100%
+		opacity 0
+		visibility hidden
+
+@keyframes fadeIn
+	0%
+		opacity 0
+		visibility hidden
+	100%
+		opacity 1
+		visibility visible
+
+@keyframes fade
+	0%
+		opacity 0
+	100%
+		opacity 1
+
+
+@keyframes fadeInRight
+	0%
+		opacity 0
+		-webkit-transform translate3d(100%, 0, 0)
+		transform translate3d(100%, 0, 0)
+	to
+		opacity 1
+		-webkit-transform translateZ(0)
+		transform translateZ(0)
+
+@keyframes is-rotating
+	to
+		transform rotate(1turn)
+
+::selection
+	background-color: $primary
+	color: $white
+
+:focus-visible
+	outline: solid $primary
+	outline-offset: 2px
+
+.header
+	line-height: 1.23

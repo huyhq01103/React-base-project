@@ -13,6 +13,30 @@ html
   -ms-text-size-adjust: 100% // 2
   -webkit-text-size-adjust: 100% // 2
 
+
+// TODO: feature is non-standard
+/**
+ * The user agent will prioritize the legibility of text
+ */
+// body
+// 	text-rendering optimizeLegibility
+
+/**
+ * Smoothly animate the scroll position
+ */
+html
+	scroll-behavior smooth
+	-webkit-overflow-scrolling: touch
+
+/**
+ * Controls the application of anti-aliasing when fonts are rendered
+ */
+
+// TODO: 39.64% support
+// *, ::before, ::after
+// 	-webkit-font-smoothing antialiased
+
+
 /**
  * Remove default margin.
  */
@@ -86,6 +110,7 @@ template
 
 a
   background-color: transparent // 1
+  -webkit-text-fill-color: currentcolor
   &:active,
   &:hover
     outline: 0 // 2
@@ -164,7 +189,16 @@ sub
  */
 
 img
-  border: 0
+	border 0
+	max-width 100%
+	height: auto
+
+/**
+ * Remove space end image
+ */
+
+img[src$=".png"], img[src$=".jpg"]
+	display block
 
 /**
  * Correct overflow not hidden in IE 9/10/11.
@@ -181,7 +215,7 @@ svg:not(:root)
  */
 
 figure
-  margin: 1em 40px
+  margin: 1em 20px
 
 /**
  * Address differences between Firefox and other browsers.
@@ -239,6 +273,13 @@ textarea
 
 button
   overflow: visible
+
+/**
+ * Hidden ouline when click, no hidden when using Tab
+ */
+
+button:focus:not(:focus-visible)
+  outline none
 
 /**
  * Address inconsistent `text-transform` inheritance for `button` and `select`.

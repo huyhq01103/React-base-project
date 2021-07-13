@@ -1,0 +1,253 @@
+.hero-banner
+	background $gradient
+	text-align center
+	margin-top 0
+
+	/* ---- Hero header ---- */
+	.container
+		position relative
+		margin-top 3rem
+		min-height: 559px
+		min-height: fit-content
+		align-items: center
+		display flex
+		flex-direction: column
+		+breakpoint(PC)
+			margin-top 3.375rem
+			height: 602px
+		.header
+			margin-horizontal auto
+			margin-top 0
+			margin-bottom 1.5rem
+			font-weight 700
+			font-size 1.75rem
+			display flex
+			flex-direction: column
+			align-items: center
+			justify-content: center
+			> p
+				height 1.5em
+				margin 0
+
+			+breakpoint(PC)
+				flex-direction: row
+				font-size 2rem
+				margin-bottom .75rem
+				width 640px
+				display flex
+				flex-wrap wrap
+				justify-content center
+
+				> *:nth-child(n)>not(:nth-child(2))
+					flex-basis 31%
+
+			span:not(.minus)
+				color $secondary
+				text-shadow 1px 2px $text_color
+
+			p:first-child::before,
+			p:last-child::after
+				content ' " '
+
+		p.minus
+			display none
+			+breakpoint(PC)
+				display inline-block
+				margin-horizontal 1ch
+
+		.description
+			font-size .875rem
+			color $text_color
+			margin 0
+			margin-horizontal auto
+			padding-horizontal 1.5rem
+
+			+breakpoint(PC)
+				max-width 560px
+
+
+		/* ---- Hero button ---- */
+		a.btn
+			margin-top 1.25rem
+			margin-bottom 3rem
+			box-shadow 1px 3px 0px $primary_background
+			+breakpoint(tablet)
+				margin-bottom 0
+
+		/* ---- Hero image ---- */
+		.hero-image
+			width 100%
+			display block
+			display block
+			margin-horizontal auto
+			height: auto
+			width 100%
+			+breakpoint(PC)
+				margin-top auto
+				width unset
+
+
+/* ---- Reason ---- */
+
+.reason
+	color $text_color
+	text-align center
+	+breakpoint(PC)
+		margin-horizontal auto
+
+	.reason-header
+		font-weight normal
+		font-size 1.5rem
+		margin-bottom 1.5rem
+		+breakpoint(PC)
+			font-size 2.25rem
+			margin-bottom 3rem
+
+	.swiper-container
+		+breakpoint(PC)
+			pointer-events: none
+		.swiper-pagination
+			--swiper-theme-color $primary
+			+breakpoint(PC)
+				display none
+		.swiper-pagination-bullets
+			bottom 0
+		.swiper-wrapper
+			margin-bottom 1.7rem
+			+breakpoint(PC)
+				margin-bottom 0
+				display grid
+				grid-gap  3rem
+				grid-template-columns repeat(4, 1fr)
+		.swiper-slide
+			.icon
+				width 2.5rem
+				height 2.5rem
+			.caption
+				font-size .875rem
+			+breakpoint(PC)
+				all unset !important
+
+
+/* ---- Customers ---- */
+
+.customers
+	text-align center
+	.container
+		.row
+			margin-vertical -0.5rem
+			+breakpoint(PCSM)
+				margin-vertical -0.75rem
+			> .item
+				margin-vertical .5rem
+				+breakpoint(PCSM)
+					margin-vertical .75rem
+
+		// +breakpoint(PC)
+		// 	display flex
+		// 	flex-wrap wrap
+		// 	place-items: center
+		// 	grid-row-gap: 1.5rem
+		// 	grid-column-gap: 0
+		// 	justify-content center
+
+		.item
+			.brand-logo
+				display block
+				width: 100%
+				max-width 73%
+				margin-horizontal auto
+				height auto
+				+breakpoint(PC)
+					height auto
+					width auto
+				filter grayscale(1)
+				transition filter 0.3s ease
+				+reduce()
+					transition none
+				&:hover
+					filter unset
+
+			+breakpoint(PC)
+				gaps column 0
+				make-col(2)
+
+
+/* ---- Business ---- */
+
+.business
+	.container
+		display flex
+		flex-center()
+		flex-direction column
+
+		+breakpoint(PC)
+			flex-direction row
+			justify-content space-between
+
+		.wrapper
+			+breakpoint(PC)
+				width 440px
+				height: auto
+				text-align left
+
+		.heading
+			color $text_color
+			font-size 1.5rem
+			font-weight normal
+			margin-vertical 0
+			line-height: 1.23
+			+breakpoint(PC)
+				font-size 2.25rem
+		.description
+			margin-top 0.5rem
+			font-size 1rem
+			color $text_color
+
+			+breakpoint(PC)
+				margin-top 1.5rem
+				margin-bottom 0
+
+		.btn
+			margin-vertical 1.5rem
+
+		.business-image img
+			width 100%
+
+
+/* ---- Contact ---- */
+
+.contact
+	scroll-space()
+	.container
+		+breakpoint(PC)
+			margin auto
+			display flex
+			justify-content space-between
+			position relative
+
+	.header
+		+breakpoint(PC)
+			width 360px
+			line-height: 1.23
+			height: auto
+			text-align left
+
+	.contact-icon
+		margin-top 2.5rem
+		+breakpoint(PC)
+			margin-top unset
+			position absolute
+			bottom 15px
+			left 0
+
+	.wrapper
+		display flex
+		flex-direction column
+		gaps column 1rem
+		+breakpoint(PC)
+			width 540px
+			margin-left auto
+
+		.btn
+			width unset
